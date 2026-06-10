@@ -29,57 +29,7 @@ A full end-to-end machine learning system that detects fraudulent Medicare healt
 
 ---
 
-## 🗂️ Project Structure
 
-```
-healthcare-fraud-detection/
-│
-├── dashboard/
-│   └── appganacheg.py              # Main Streamlit dashboard (9 pages)
-│
-├── data/
-│   ├── raw/                        # Original CMS Medicare CSVs (not uploaded - too large)
-│   └── processed/
-│       ├── feature_names.csv       # 47 engineered feature names
-│       ├── X_val_scaled.npy        # Scaled validation features
-│       ├── y_val.npy               # Validation labels
-│       ├── lr_shap_values_val.npy  # SHAP values for Logistic Regression
-│       ├── rf_shap_values_val.npy  # SHAP values for Random Forest
-│       ├── lr_expected_value.npy   # SHAP base value (LR)
-│       └── rf_expected_value.npy   # SHAP base value (RF)
-│
-├── models/
-│   ├── logistic_regression.pkl     # Trained LR model
-│   ├── random_forest.pkl           # Trained RF model
-│   └── scaler.pkl                  # StandardScaler fitted on training data
-│
-├── results/
-│   ├── test_predictions.csv        # ML predictions on 1,353 test providers
-│   ├── all_metrics_for_dashboard.csv  # All 7 model metrics
-│   ├── optimal_threshold.json      # Tuned classification threshold
-│   ├── blockchain_verified_records.csv  # On-chain records
-│   ├── blockchain_stored_records.csv    # TxHash + BlockNumber records
-│   └── blockchain_config.json      # Deployed contract address + ABI
-│
-├── blockchain/
-│   └── contracts/
-│       └── FraudRegistry.sol       # Solidity smart contract
-│
-├── paper/
-│   └── figures/                    # All paper figures (fig06 - fig14)
-│
-├── notebooks/
-│   ├── 01_data_preprocessing.ipynb
-│   ├── 02_feature_engineering.ipynb
-│   ├── 03_model_training.ipynb
-│   └── 04_blockchain_store.ipynb
-│
-├── requirements.txt
-├── .gitignore
-└── README.md
-```
-
----
 
 ## 🔬 Dataset
 
@@ -169,33 +119,6 @@ Each block stores the previous block's hash → breaking any record breaks the e
 
 ---
 
-## 🚀 How to Run Locally
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/YOUR_USERNAME/healthcare-fraud-detection.git
-cd healthcare-fraud-detection
-```
-
-### 2. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Start Ganache (for blockchain features)
-- Download [Ganache](https://trufflesuite.com/ganache/)
-- Open your saved Workspace or start a new one on port **7545**
-- Make sure your deployed contract address matches `results/blockchain_config.json`
-
-### 4. Run the dashboard
-```bash
-streamlit run dashboard/appganacheg.py
-```
-
-### 5. Open in browser
-```
-http://localhost:8501
-```
 
 ---
 
@@ -215,12 +138,6 @@ See `requirements.txt` for full list. Key packages:
 
 **Title:** Blockchain-Secured Healthcare Provider Fraud Detection using Machine Learning and Explainable AI
 
-**Conference:** INDISCON 2026
-
 **Abstract:** This paper presents an integrated system combining 47 engineered features from CMS Medicare data, 7 evaluated ML models (best: Logistic Regression, AUC-ROC 96.75%, Recall 90.10%), SHAP-based explainability, and an Ethereum blockchain audit trail with 100% tamper-proof integrity across 134 stored records.
 
----
 
-## 👩‍💻 Author
-
-**Geetha** | INDISCON 2026
