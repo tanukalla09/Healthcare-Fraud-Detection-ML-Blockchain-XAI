@@ -141,3 +141,4 @@ See `requirements.txt` for full list. Key packages:
 **Abstract:** This paper presents an integrated system combining 47 engineered features from CMS Medicare data, 7 evaluated ML models (best: Logistic Regression, AUC-ROC 96.75%, Recall 90.10%), SHAP-based explainability, and an Ethereum blockchain audit trail with 100% tamper-proof integrity across 134 stored records.
 
 
+# healthcare-fraud-detection-ml-blockchain-xai-09
